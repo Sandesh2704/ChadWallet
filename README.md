@@ -1,69 +1,138 @@
 # ChadWallet
 
-Premium cryptocurrency trading platform built with Next.js 15.
+A premium cryptocurrency trading platform built with **Next.js 15**, focused on fast execution, real-time market data, and a modern trading experience.
+
+## 🚀 Live Demo
+
+**Production:** https://chad-wallet-two.vercel.app/
+
+---
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS + shadcn/ui
-- **Animation**: Framer Motion
-- **State**: Zustand
-- **Data Fetching**: TanStack Query
-- **Database**: Supabase
-- **Auth**: Privy (Google + Apple)
-- **APIs**: BirdEye, Alchemy, Jupiter, TradingView
+* **Framework:** Next.js 15 (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS + shadcn/ui
+* **Animation:** Framer Motion
+* **State Management:** Zustand
+* **Data Fetching:** TanStack Query
+* **Database:** Supabase
+* **Authentication:** Privy (Google Authentication)
+* **Blockchain:** Solana
+* **APIs & Services:**
+
+  * BirdEye
+  * DexScreener
+  * Jupiter
+  * Alchemy RPC
+  * TradingView
+
+---
+
+## Features
+
+* Modern crypto trading interface
+* Live trending tokens
+* Token search
+* Interactive trading pages
+* Live market statistics
+* Token watchlist & favorites
+* Wallet authentication with Privy
+* Responsive desktop & mobile UI
+* Animated token ticker
+* Real-time token data from BirdEye & DexScreener
+* TradingView charts (supported markets)
+
+---
 
 ## Getting Started
 
+### Install dependencies
+
 ```bash
-# Install dependencies
 npm install
+```
 
-# Copy environment variables
+### Configure environment variables
+
+```bash
 cp .env.example .env.local
+```
 
-# Run database migrations
-# Apply supabase/schema.sql to your Supabase project
+Fill in the required API keys and credentials.
 
-# Start development server
+### Database
+
+Apply the SQL schema located at:
+
+```text
+supabase/schema.sql
+```
+
+to your Supabase project.
+
+### Start development
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open:
+
+```text
+http://localhost:3000
+```
+
+---
 
 ## Environment Variables
 
-See `.env.example` for all required variables.
+Refer to `.env.example` for all required variables.
 
-Set `NEXT_PUBLIC_USE_LIVE_DATA=true` to switch from mock data to live BirdEye/Jupiter APIs.
+Enable live market data:
+
+```env
+NEXT_PUBLIC_USE_LIVE_DATA=true
+```
+
+---
 
 ## Project Structure
 
-```
+```text
 src/
-├── app/           # Next.js App Router pages
-├── components/    # Shared UI components
-├── features/      # Feature-based modules
-├── hooks/         # Custom React hooks
-├── lib/           # Utilities and mock data
-├── providers/     # React context providers
-├── services/      # API service layer
-├── store/         # Zustand stores
-├── types/         # TypeScript types
-├── utils/         # Helper functions
-├── styles/        # Global styles
-└── constants/     # App constants
+├── app/               # App Router pages
+├── components/        # Shared UI components
+├── constants/         # Application constants
+├── features/          # Feature modules
+├── hooks/             # Custom React hooks
+├── lib/               # Utilities
+├── providers/         # React providers
+├── services/          # API integrations
+├── store/             # Zustand stores
+├── styles/            # Global styles
+├── types/             # TypeScript types
+└── utils/             # Helper functions
 ```
+
+---
 
 ## Deployment
 
-Deploy to Vercel:
+Deploy using Vercel:
 
 ```bash
 vercel deploy
 ```
 
+Production URL:
+
+```text
+https://chad-wallet-two.vercel.app/
+```
+
+---
+
 ## License
 
-Private - All rights reserved.
+Private — All Rights Reserved.
