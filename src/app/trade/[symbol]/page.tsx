@@ -37,7 +37,7 @@ export default async function TradePage({ params }: TradePageProps) {
         <TokenBannerWrapper tokens={tokens} position="top" />
       </Suspense>
 
-      <div className="min-h-screen pt-16 pb-14">
+      <div className="min-h-screen pt-16 pb-20">
         <div className="w-full mx-auto px-4 py-4">
           <div className="grid grid-cols-1 lg:grid-cols-9 gap-4">
             {/* Left Sidebar */}

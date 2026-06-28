@@ -23,17 +23,16 @@ export function Hero({ stats, featuredTokens }: HeroProps) {
   });
   
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
     <section 
       ref={ref}
-      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20 pb-16"
+      className="relative h-fit lg:min-h-[100dvh] flex items-center justify-center overflow-hidden  pt-36 md:pt-48 lg:pt-20 pb-16"
     >
       <AnimatedBackground />
       
       <motion.div 
-        style={{ y, opacity }}
+        style={{ y, }}
         className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 text-center w-full"
       >
         <motion.div

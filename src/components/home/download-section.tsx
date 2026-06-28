@@ -13,7 +13,7 @@ const features = [
 
 export function DownloadSection() {
   return (
-    <section className="py-24 px-4 md:px-8 relative overflow-y-visible overflow-x-hidden ">
+    <section className="py-24 px-4 md:px-8 relative overflow-hidden ">
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
@@ -26,7 +26,7 @@ export function DownloadSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative p-8 md:p-12 lg:p-16 rounded-3xl border border-border bg-card/40 backdrop-blur-sm overflow-hidden"
+          className="relative p-8 md:p-12 lg:p-16 rounded-3xl border border-border bg-card/40 backdrop-blur-sm "
         >
           {/* Animated gradient orb */}
           <motion.div
