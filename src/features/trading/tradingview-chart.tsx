@@ -10,10 +10,33 @@ interface TradingViewChartProps {
 export function TradingViewChart({ symbol, height = 500 }: TradingViewChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
+
+
   useEffect(() => {
     if (!containerRef.current) return;
 
     containerRef.current.innerHTML = "";
+
+      const exchange = (() => {
+    switch (symbol.toUpperCase()) {
+      case "BTC":
+      case "ETH":
+      case "SOL":
+      case "BNB":
+      case "XRP":
+      case "DOGE":
+      case "ADA":
+      case "LINK":
+        return "BINANCE";
+
+      case "PUMP":
+        return "BYBIT";
+
+      default:
+        return "BYBIT";
+    }
+  })();
+
 
     const script = document.createElement("script");
     script.src = "https://s3.tradingview.com/tv.js";
@@ -22,7 +45,7 @@ export function TradingViewChart({ symbol, height = 500 }: TradingViewChartProps
       if (typeof window.TradingView !== "undefined") {
         new window.TradingView.widget({
           container_id: containerRef.current?.id ?? "tradingview_chart",
-          symbol: `BYBIT:${symbol}USDT`,
+symbol: `${exchange}:${symbol}USD`,
           interval: "60",
           timezone: "Etc/UTC",
           theme: "dark",
