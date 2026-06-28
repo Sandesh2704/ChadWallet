@@ -5,6 +5,9 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+
+
+
 export function formatNumber(num: number, decimals = 2): string {
   if (num >= 1_000_000_000) return `$${(num / 1_000_000_000).toFixed(decimals)}B`;
   if (num >= 1_000_000) return `$${(num / 1_000_000).toFixed(decimals)}M`;
