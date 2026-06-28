@@ -1,6 +1,6 @@
 "use client";
-
-import Link from "next/link";
+import NextLink from "next/link";
+import { Link } from "react-scroll";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -24,7 +24,7 @@ export function Navbar() {
     <nav className="fixed top-20 left-0 right-0 z-50 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-16 px-6 rounded-lg border border-border/50 bg-background/60 backdrop-blur-xl">
-       <Link href="/" className="flex items-center gap-2">
+<NextLink href="/" className="flex items-center gap-2">
   <Image
     src="/logo.png" // or /logo.svg
     alt="Agent Threads"
@@ -37,12 +37,11 @@ export function Navbar() {
   <span className="text-lg font-bold text-foreground">
     {APP_NAME}
   </span>
-</Link>
+</NextLink>
 
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <Link
-               scroll={false}
                 key={link.href}
                 href={link.href}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -53,9 +52,9 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <Link href="/trade/SOL">
+          <NextLink href="/trade/SOL">
               <Button variant="outline" size="sm">Trade</Button>
-            </Link>
+          </NextLink>
             <ConnectWalletButton size="sm" />
           </div>
 
@@ -77,7 +76,6 @@ export function Navbar() {
             >
               {NAV_LINKS.map((link) => (
                 <Link
-                  scroll={false}
                   key={link.href}
                   href={link.href}
                   className="block py-2 text-sm text-muted-foreground hover:text-foreground"
