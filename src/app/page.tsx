@@ -7,12 +7,12 @@ import { Navbar } from "@/components/layout/navbar";
 import { Hero } from "@/components/home/hero";
 import { Features } from "@/components/home/features";
 import { SupportedChains } from "@/components/home/supported-chains";
-import { TrendingTokens } from "@/components/trade/trending-tokens";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { DownloadSection } from "@/components/home/download-section";
 import { FAQ } from "@/components/home/faq";
 import { Footer } from "@/components/layout/footer";
 import { TokenBannerWrapper } from "@/components/trade/token-banner-wrapper";
+import { TrendingTokens } from "@/components/trade/trending-tokens";
 
 export default async function HomePage() {
   const tokens = await getTrendingTokens(30);

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { APP_NAME } from "@/constants";
+import Image from "next/image";
 
 const FOOTER_LINKS = {
   Product: [
@@ -25,12 +26,20 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-purple-400 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">C</span>
-              </div>
-              <span className="text-lg font-bold text-foreground">{APP_NAME}</span>
-            </div>
+          <div className="flex items-center gap-2 mb-4">
+  <Image
+    src="/logo.png" 
+    alt="Agent Threads"
+    width={32}
+    height={32}
+    priority
+    className="w-8 h-8"
+  />
+
+  <span className="text-lg font-bold text-foreground">
+    {APP_NAME}
+  </span>
+</div>
             <p className="text-sm text-muted-foreground max-w-xs">
               The ultimate crypto trading platform. Trade smarter, not harder.
             </p>

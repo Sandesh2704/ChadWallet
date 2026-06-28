@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/constants";
 import { ConnectWalletButton } from "@/features/auth/connect-wallet-button";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { href: "#features", label: "Features" },
@@ -23,12 +24,20 @@ export function Navbar() {
     <nav className="fixed top-20 left-0 right-0 z-50 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-16 px-6 rounded-lg border border-border/50 bg-background/60 backdrop-blur-xl">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-purple-400 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">C</span>
-            </div>
-            <span className="text-lg font-bold text-foreground">{APP_NAME}</span>
-          </Link>
+       <Link href="/" className="flex items-center gap-2">
+  <Image
+    src="/logo.png" // or /logo.svg
+    alt="Agent Threads"
+    width={32}
+    height={32}
+    priority
+    className="w-8 h-8"
+  />
+
+  <span className="text-lg font-bold text-foreground">
+    {APP_NAME}
+  </span>
+</Link>
 
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
