@@ -48,7 +48,7 @@ export function HowItWorks() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
-    <section id="how-it-works" className="py-24 px-4 md:px-8 relative overflow-y-visible overflow-x-hidden">
+    <section id="how-it-works" className="py-24 scroll-mt-28 px-4 md:px-8 relative overflow-y-visible overflow-x-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />

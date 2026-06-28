@@ -17,7 +17,7 @@ export function TrendingTokens({ tokens }: TrendingTokensProps) {
   const hasMore = visibleCount < tokens.length;
 
   return (
-    <section id="trending" className="py-24 px-4 md:px-8 relative overflow-y-visible overflow-x-hidden">
+    <section id="trending" className="py-24 scroll-mt-28 px-4 md:px-8 relative overflow-y-visible overflow-x-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />

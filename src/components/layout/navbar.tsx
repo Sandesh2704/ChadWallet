@@ -10,11 +10,11 @@ import { ConnectWalletButton } from "@/features/auth/connect-wallet-button";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { href: "#features", label: "Features" },
-  { href: "#chains", label: "Chains" },
-  { href: "#trending", label: "Trending" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#features", label: "Features" },
+  { href: "/#chains", label: "Chains" },
+  { href: "/#trending", label: "Trending" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Navbar() {
@@ -42,6 +42,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <Link
+               scroll={false}
                 key={link.href}
                 href={link.href}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -76,6 +77,7 @@ export function Navbar() {
             >
               {NAV_LINKS.map((link) => (
                 <Link
+                  scroll={false}
                   key={link.href}
                   href={link.href}
                   className="block py-2 text-sm text-muted-foreground hover:text-foreground"

@@ -23,7 +23,7 @@ export function FAQ() {
   );
 
   return (
-    <section id="faq" className="py-24 px-4 md:px-8 relative overflow-y-visible overflow-x-hidden">
+    <section id="faq" className="py-24 scroll-mt-28 px-4 md:px-8 relative overflow-y-visible overflow-x-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
