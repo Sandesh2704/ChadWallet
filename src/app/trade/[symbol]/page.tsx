@@ -29,7 +29,6 @@ export default async function TradePage({ params }: TradePageProps) {
     getTokenHolders(symbol, 50),
   ]);
 
-  console.log("token", token)
 
   return (
     <>
@@ -56,8 +55,8 @@ export default async function TradePage({ params }: TradePageProps) {
               <div className="p-5 rounded-lg border border-border bg-card">
                 <div className="flex items-center gap-4 mb-4">
                   <TokenLogo
+                   logoURI={token.logoURI} 
                     symbol={token.symbol}
-                    logoURI={token.logoURI}
                     size="lg"
                   />
                   <div>

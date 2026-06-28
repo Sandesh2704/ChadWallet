@@ -10,6 +10,7 @@ interface RecentTradesProps {
 }
 
 export function RecentTrades({ trades }: RecentTradesProps) {
+
   return (
     <Card>
       <CardHeader className="pb-3">
@@ -23,8 +24,8 @@ export function RecentTrades({ trades }: RecentTradesProps) {
             <span className="text-right">Amount</span>
             <span className="text-right">Time</span>
           </div>
-          {trades.slice(0, 20).map((trade) => (
-            <div key={trade.id} className="grid grid-cols-4 text-xs py-1.5 hover:bg-border/20 rounded">
+          {trades.slice(0, 20).map((trade, index) => (
+            <div key={index} className="grid grid-cols-4 text-xs py-1.5 hover:bg-border/20 rounded">
               <Badge variant={trade.type === "buy" ? "success" : "destructive"} className="w-fit text-[10px]">
                 {trade.type}
               </Badge>

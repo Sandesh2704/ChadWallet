@@ -137,14 +137,25 @@ export function TokenLogo({
 
   if (logoURI && !error) {
     return (
-      <Image
-        src={logoURI}
-        alt={symbol}
-        width={size === "lg" ? 48 : size === "md" ? 36 : 28}
-        height={size === "lg" ? 48 : size === "md" ? 36 : 28}
-        onError={() => setError(true)}
-        className={cn("rounded-full object-cover shrink-0", sizeClass[size])}
-      />
+      // <Image
+      //   src={logoURI}
+      //   alt={symbol}
+      //   width={size === "lg" ? 48 : size === "md" ? 36 : 28}
+      //   height={size === "lg" ? 48 : size === "md" ? 36 : 28}
+      //   onError={() => setError(true)}
+      //   className={cn("rounded-full object-cover shrink-0", sizeClass[size])}
+      // />
+<img
+  src={logoURI}
+  alt={symbol}
+  className={cn(
+    "rounded-full object-cover shrink-0",
+    sizeClass[size]
+  )}
+  loading="lazy"
+  referrerPolicy="no-referrer"
+  onError={() => setError(true)}
+/>
     );
   }
 

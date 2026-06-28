@@ -144,3 +144,27 @@ export interface PaginatedResponse<T> {
   pageSize: number;
   hasMore: boolean;
 }
+
+
+export interface BirdEyeSearchToken {
+  address: string;
+  symbol: string;
+  name: string;
+  logo_uri?: string;
+  price?: number;
+  price_change_24h_percent?: number;
+  market_cap?: number;
+  fdv?: number;
+  volume_24h_usd?: number;
+  liquidity?: number;
+  unique_wallet_24h?: number;
+  network?: string;
+  decimals?: number;
+}
+
+export interface BirdEyeSearchResponse {
+  items: {
+    type: string;
+    result: BirdEyeSearchToken[];
+  }[];
+}
