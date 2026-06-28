@@ -25,7 +25,7 @@ export function ConnectWalletButton({
 
   const handleLogin = () => {
     login({
-      loginMethods: ["google", "apple"],
+      loginMethods: ["google"],
     });
   };
 

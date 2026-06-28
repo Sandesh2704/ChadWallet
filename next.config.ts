@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "**.cloudflare.com" },
       { protocol: "https", hostname: "coin-images.coingecko.com" },
       { protocol: "https", hostname: "static.jup.ag" },
+       {        protocol: "https",        hostname: "cdn.dexscreener.com",      },
     ],
   },
   experimental: {

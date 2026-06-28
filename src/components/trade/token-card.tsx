@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { formatPrice, formatPercent, formatNumber } from "@/utils/cn";
 import type { Token } from "@/types";
+import Image from "next/image";
+import { useState } from "react";
+
 
 interface TokenCardProps {
   token: Token;
@@ -25,7 +28,10 @@ export function TokenCard({ token, variant = "default", className }: TokenCardPr
             className
           )}
         >
-          <TokenLogo symbol={token.symbol} />
+    <TokenLogo
+  symbol={token.symbol}
+  logoURI={token.logoURI}
+/>
           <div className="flex flex-col">
             <span className="text-sm font-semibold text-foreground">{token.symbol}</span>
             <span className="text-xs text-muted-foreground">{token.name}</span>
@@ -52,7 +58,8 @@ export function TokenCard({ token, variant = "default", className }: TokenCardPr
           )}
         >
           <div className="flex items-center gap-2.5">
-            <TokenLogo symbol={token.symbol} size="sm" />
+            <TokenLogo   symbol={token.symbol}
+  logoURI={token.logoURI} size="sm" />
             <div>
               <p className="text-sm font-medium text-foreground">{token.symbol}</p>
               <p className="text-xs text-muted-foreground">{token.name}</p>
@@ -79,7 +86,8 @@ export function TokenCard({ token, variant = "default", className }: TokenCardPr
         )}
       >
         <div className="flex items-center gap-3 mb-3">
-          <TokenLogo symbol={token.symbol} />
+          <TokenLogo   symbol={token.symbol}
+  logoURI={token.logoURI} />
           <div>
             <p className="font-semibold text-foreground">{token.symbol}</p>
             <p className="text-xs text-muted-foreground">{token.name}</p>
@@ -100,7 +108,23 @@ export function TokenCard({ token, variant = "default", className }: TokenCardPr
   );
 }
 
-function TokenLogo({ symbol, size = "md" }: { symbol: string; size?: "sm" | "md" }) {
+export function TokenLogo({
+  symbol,
+  logoURI,
+  size = "md",
+}: {
+  symbol: string;
+  logoURI?: string;
+  size?: "sm" | "md" | "lg";
+}) {
+  const [error, setError] = useState(false);
+
+  const sizeClass = {
+    sm: "w-7 h-7 text-[10px]",
+    md: "w-9 h-9 text-xs",
+    lg: "w-12 h-12 text-sm",
+  };
+
   const colors = [
     "from-purple-500 to-pink-500",
     "from-blue-500 to-cyan-500",
@@ -108,14 +132,28 @@ function TokenLogo({ symbol, size = "md" }: { symbol: string; size?: "sm" | "md"
     "from-orange-500 to-yellow-500",
     "from-red-500 to-rose-500",
   ];
+
   const colorIndex = symbol.charCodeAt(0) % colors.length;
+
+  if (logoURI && !error) {
+    return (
+      <Image
+        src={logoURI}
+        alt={symbol}
+        width={size === "lg" ? 48 : size === "md" ? 36 : 28}
+        height={size === "lg" ? 48 : size === "md" ? 36 : 28}
+        onError={() => setError(true)}
+        className={cn("rounded-full object-cover shrink-0", sizeClass[size])}
+      />
+    );
+  }
 
   return (
     <div
       className={cn(
         "rounded-full bg-gradient-to-br flex items-center justify-center font-bold text-white shrink-0",
         colors[colorIndex],
-        size === "sm" ? "w-7 h-7 text-[10px]" : "w-9 h-9 text-xs"
+        sizeClass[size]
       )}
     >
       {symbol.slice(0, 2)}

@@ -15,7 +15,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           accentColor: "#8B5CF6",
           logo: undefined,
         },
-        loginMethods: ["google", "apple"],
+        loginMethods: ["google"],
         embeddedWallets: {
           createOnLogin: "users-without-wallets",
         },

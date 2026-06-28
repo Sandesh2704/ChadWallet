@@ -22,7 +22,7 @@ export function TradingViewChart({ symbol, height = 500 }: TradingViewChartProps
       if (typeof window.TradingView !== "undefined") {
         new window.TradingView.widget({
           container_id: containerRef.current?.id ?? "tradingview_chart",
-          symbol: `BINANCE:${symbol}USDT`,
+          symbol: `BYBIT:${symbol}USDT`,
           interval: "60",
           timezone: "Etc/UTC",
           theme: "dark",
@@ -65,3 +65,34 @@ declare global {
     };
   }
 }
+
+
+
+interface DexScreenerChartProps {
+  pairAddress: string;
+  chain?: string;
+  height?: number;
+}
+
+export function DexScreenerChart({
+  pairAddress,
+  chain = "solana",
+  height = 500,
+}: DexScreenerChartProps) {
+  return (
+    <div
+      className="w-full rounded-lg overflow-hidden border border-border bg-card"
+      style={{ height }}
+    >
+      <iframe
+        title="DexScreener Chart"
+        src={`https://dexscreener.com/${chain}/${pairAddress}?embed=1&theme=dark`}
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        allowFullScreen
+      />
+    </div>
+  );
+}
+

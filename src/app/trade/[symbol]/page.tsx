@@ -11,6 +11,7 @@ import { MOCK_PORTFOLIO, MOCK_WATCHLISTS, MOCK_MARKET_ACTIVITY } from "@/lib/moc
 import { formatNumber } from "@/utils/cn";
 import { TokenBannerWrapper } from "@/components/trade/token-banner-wrapper";
 import { PriceBadge, StatItem } from "@/components/trade/price-badge";
+import { TokenLogo } from "@/components/trade/token-card";
 
 interface TradePageProps {
   params: Promise<{ symbol: string }>;
@@ -27,6 +28,8 @@ export default async function TradePage({ params }: TradePageProps) {
     getTokenTrades(symbol, 50),
     getTokenHolders(symbol, 50),
   ]);
+
+  console.log("token", token)
 
   return (
     <>
@@ -52,9 +55,11 @@ export default async function TradePage({ params }: TradePageProps) {
               {/* Token Header */}
               <div className="p-5 rounded-lg border border-border bg-card">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-purple-400 flex items-center justify-center text-sm font-bold text-white">
-                    {token.symbol.slice(0, 2)}
-                  </div>
+                  <TokenLogo
+                    symbol={token.symbol}
+                    logoURI={token.logoURI}
+                    size="lg"
+                  />
                   <div>
                     <h1 className="text-2xl font-bold text-foreground">{token.name}</h1>
                     <p className="text-sm text-muted-foreground">{token.symbol} / SOL</p>
@@ -71,6 +76,7 @@ export default async function TradePage({ params }: TradePageProps) {
 
               {/* Chart */}
               <TradingViewChartWrapper symbol={token.symbol} height={500} />
+              
 
               {/* Token Info */}
               <div className="p-5 rounded-lg border border-border bg-card">

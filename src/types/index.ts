@@ -12,6 +12,8 @@ export interface Token {
   category: string;
   chain: string;
   decimals: number;
+  pairAddress?:string;
+  dexId?:string;
 }
 
 export interface TokenTrade {
